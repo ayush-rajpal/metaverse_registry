@@ -14,6 +14,12 @@
       "owner": "zlisto"
     },
     {
+      "id": "hpa_office",
+      "name": "HPA Office",
+      "address": "https://baggs99.github.io/som-explore/office.html",
+      "owner": "Baggs99"
+    },
+    {
       "id": "starter_world",
       "name": "Starter World",
       "address": "https://zlisto.github.io/world_starter/",
