@@ -26,7 +26,7 @@ A public list of worlds on the Metaverse Web (`mvw/0.1`, see [`https://github.co
    | `owner` | Your GitHub username, so people know who to ask. |
 
 3. **Check it:** run `node check.js` (Node 18 or newer, no install needed). Every world should show `✓`.
-4. **Open a pull request.** If it only adds your one world, `owner` is your GitHub username, and the address is on your own GitHub Pages site (`https://<your-username>.github.io/...`), it **merges automatically** as soon as the manifest check passes. Anything else (another host, edits to other entries, several worlds at once) gets a quick human review.
+4. **Open a pull request.** If it only adds worlds (up to 5), each with `owner` set to your GitHub username and a public `https://` address, it **merges automatically** as soon as the manifest check passes. Nobody has to approve it. Only changes to existing entries wait for a review.
 5. **Walk in.** Metaverse Square reads this list live every time it opens, so your portal appears there within a few minutes of the merge. If your manifest has a `from_square` spawn, the square's portal lands people there, so put it in front of your portal back to the square.
 
 ## Checking every world

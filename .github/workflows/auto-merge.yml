@@ -1,7 +1,7 @@
 name: Auto-merge new worlds
 
-# A pull request that only adds one world, owned by its author and hosted on their own GitHub
-# Pages site, merges itself once the "check" workflow passes. Anything else waits for review.
+# A pull request that only adds worlds (up to 5), each owned by its author at a public https
+# address, merges itself once the "check" workflow passes. Edits to existing worlds wait for review.
 # pull_request_target runs this workflow from main with write access, so it never checks out or
 # runs the pull request's code: auto-merge.js reads the proposed worlds.json as data only.
 on:
@@ -40,4 +40,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REASON: ${{ steps.rules.outputs.reason }}
         run: |
-          gh pr comment "${{ github.event.pull_request.number }}" -R "${{ github.repository }}" --body "Thanks! This one will be merged by hand after a quick review, because $REASON. Pull requests that only add one world, with \`owner\` set to your GitHub username and an address on your own \`https://<username>.github.io/\` site, merge automatically once the check passes."
+          gh pr comment "${{ github.event.pull_request.number }}" -R "${{ github.repository }}" --body "Thanks! This one will be merged by hand after a quick review, because $REASON. Pull requests that only add worlds, with \`owner\` set to your GitHub username and a public \`https://\` address, merge automatically once the manifest check passes."
