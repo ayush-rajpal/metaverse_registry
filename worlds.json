@@ -72,6 +72,12 @@
       "name": "Metaverse Square",
       "address": "https://zlisto.github.io/hub_world/",
       "owner": "zlisto"
+    },
+    {
+      "id": "evans_hall_lan",
+      "name": "Evans Hall · Floor 2",
+      "address": "https://www.laneluo.com/yale_som_virtual/",
+      "owner": "ericluo04"
     }
   ]
 }
