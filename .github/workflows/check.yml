@@ -1,18 +1,33 @@
 name: Check worlds
 
-# On every pull request (and push), fetch each world's manifest and check it's valid mvw/0.1.
+# Fetches each world's manifest and checks it's valid mvw/0.1.
+# Pull requests use pull_request_target, so the check runs right away for everyone, including
+# first-time contributors (a plain pull_request run would wait for the owner to approve it).
+# That's safe because it runs check.js from main and reads the proposed worlds.json as data
+# (WORLDS_URL); it never checks out or runs the pull request's code, and has read-only access.
 on:
-  pull_request:
   push:
     branches: [main]
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4 # main, never the pull request
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: node check.js
+      - name: Check the proposed list (pull requests)
+        if: github.event_name == 'pull_request_target'
+        env:
+          WORLDS_URL: https://raw.githubusercontent.com/${{ github.event.pull_request.head.repo.full_name }}/${{ github.event.pull_request.head.sha }}/worlds.json
+        run: node check.js
+      - name: Check the list on main
+        if: github.event_name != 'pull_request_target'
+        run: node check.js

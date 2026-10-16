@@ -1,10 +1,25 @@
 // Checks every world in worlds.json: does its manifest load, and is it valid mvw/0.1?
 // Usage: node check.js            (Node 18 or newer; no packages needed)
+//        WORLDS_URL=<url> node check.js   checks a list fetched from that address instead (the CI uses
+//        this for pull requests: it reads the proposed worlds.json as data and never runs its code)
 // Exits with code 1 if any world fails, so it can run on pull requests in CI.
 
 import { readFileSync } from 'node:fs'
 
-const registry = JSON.parse(readFileSync(new URL('./worlds.json', import.meta.url), 'utf8'))
+async function loadList() {
+  if (!process.env.WORLDS_URL) return JSON.parse(readFileSync(new URL('./worlds.json', import.meta.url), 'utf8'))
+  const res = await fetch(process.env.WORLDS_URL, { signal: AbortSignal.timeout(10000) })
+  if (!res.ok) throw new Error(`couldn't fetch ${process.env.WORLDS_URL} (HTTP ${res.status})`)
+  return res.json()
+}
+let registry
+try {
+  registry = await loadList()
+  if (!Array.isArray(registry?.worlds)) throw new Error('worlds.json has no "worlds" list')
+} catch (e) {
+  console.log(`✗ ${e.message}`)
+  process.exit(1)
+}
 const isWebAddress = (s) => {
   try {
     return /^https?:$/.test(new URL(s).protocol)
