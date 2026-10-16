@@ -3,7 +3,7 @@
   "worlds": [
     {
       "id": "evans_hall_3d",
-      "name": "Yale SOM · Evans Hall",
+      "name": "Yale SOM \u00b7 Evans Hall",
       "address": "https://zlisto.github.io/evans-hall-3d/",
       "owner": "zlisto"
     },
@@ -65,6 +65,12 @@
       "id": "lighthouse_of_alexandria",
       "name": "Lighthouse of Alexandria",
       "address": "https://zlisto.github.io/lighthouse-of-alexandria/",
+      "owner": "zlisto"
+    },
+    {
+      "id": "arcade_of_alexandria",
+      "name": "Arcade of Alexandria",
+      "address": "https://zlisto.github.io/arcade_of_alexandria/",
       "owner": "zlisto"
     },
     {
