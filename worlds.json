@@ -3,7 +3,7 @@
   "worlds": [
     {
       "id": "evans_hall_3d",
-      "name": "Yale SOM \u00b7 Evans Hall",
+      "name": "Yale SOM · Evans Hall",
       "address": "https://zlisto.github.io/evans-hall-3d/",
       "owner": "zlisto"
     },
@@ -84,6 +84,12 @@
       "name": "Evans Hall · Floor 2",
       "address": "https://www.laneluo.com/yale_som_virtual/",
       "owner": "ericluo04"
+    },
+    {
+      "id": "taj_mahal",
+      "name": "Taj Mahal",
+      "address": "https://ayush-rajpal.github.io/taj-mahal/",
+      "owner": "ayush-rajpal"
     }
   ]
 }
