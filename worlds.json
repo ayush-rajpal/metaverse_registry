@@ -96,6 +96,12 @@
       "name": "Taj Mahal",
       "address": "https://ayush-rajpal.github.io/taj-mahal/",
       "owner": "ayush-rajpal"
+    },
+    {
+      "id": "ingalls_rink",
+      "name": "Ingalls Rink",
+      "address": "https://tkg9.github.io/ingalls-rink/",
+      "owner": "tkg9"
     }
   ]
 }
