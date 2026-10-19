@@ -102,6 +102,12 @@
       "name": "Ingalls Rink",
       "address": "https://tkg9.github.io/ingalls-rink/",
       "owner": "tkg9"
+    },
+    {
+      "id": "red_fort",
+      "name": "Red Fort",
+      "address": "https://ayush-rajpal.github.io/red-fort/",
+      "owner": "ayush-rajpal"
     }
   ]
 }
